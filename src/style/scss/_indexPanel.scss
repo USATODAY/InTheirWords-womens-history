@@ -1,5 +1,5 @@
 .iapp-index-panel {
-    
+    @include BoxShadowHelper(3);
     box-shadow: $shadow-standard;
     left: auto;
     height: 100%;
