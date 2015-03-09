@@ -69,6 +69,7 @@ define(
             onPersonSelected: function(personModel) {
                 this.$('.iapp-flip-item').addClass('iapp-flipped');
                 var personFirstName = personModel.get('first_name');
+                console.log(personFirstName);
                 this.filterClips(personFirstName);
 
             },

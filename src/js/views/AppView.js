@@ -69,10 +69,10 @@ define(
                 }
             },
             onVideoRoute: function(clip_name) {
+                console.log(clip_name);
+                console.log(dataManager.data);
                 
-
-                
-                this.goToVideo(this.videoCollection.findWhere({'video_clip': clip_name}));
+                this.goToVideo(this.videoCollection.findWhere({'video_clip': 'Anne-Feminist'}));
             },
             render: function() {
                this.$el.append(this.template({logo: this.logoURL, title: dataManager.data.title, page_url: this.getURL()}));
