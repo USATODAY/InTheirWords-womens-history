@@ -145,11 +145,11 @@ this["templates"]["person.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<img src="' +
+__p += '<div class="iapp-person-image-wrap">\n    <img src="' +
 ((__t = (person_still)) == null ? '' : __t) +
 '" alt="' +
 ((__t = (person_name)) == null ? '' : __t) +
-'" class="iapp-person-item-img">\n<div class="iapp-person-text">\n    <h3 class="iapp-person-name">' +
+'" class="iapp-person-item-img">\n    <div class="iapp-person-more-video-button">\n        More videos\n    </div>\n</div>\n<div class="iapp-person-text">\n    <h3 class="iapp-person-name">' +
 ((__t = (person_name)) == null ? '' : __t) +
 '</h3>\n    <p class="iapp-person-bio">' +
 ((__t = (person_bio)) == null ? '' : __t) +
