@@ -138,6 +138,7 @@ define(
             },
             goBack: function() {
                 var oldSub = this.subViews[this.currentSubView];
+                console.log("back");
                 this.currentSubView--;
                 var newSub = this.subViews[this.currentSubView];
 

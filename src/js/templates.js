@@ -131,11 +131,11 @@ this["templates"]["name.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-content-wrap">\n        <h2 class="iapp-name-greeting iapp-panel-text-main">' +
+__p += '<div class="iapp-panel iapp-name-input-panel active">\n    <div class="iapp-button-small iapp-name-back-button button">\n        <div class="iapp-button-text">\n            Back\n        </div>\n    </div>\n    <div class="iapp-content-wrap">\n        <h2 class="iapp-name-greeting iapp-panel-text-main">' +
 ((__t = (greeting)) == null ? '' : __t) +
 '</h3>\n        <h2 class="iapp-name-info iapp-panel-text-main">' +
 ((__t = (name_text)) == null ? '' : __t) +
-'</h2>\n        <input type="text" class="iapp-name-input" placeholder="TYPE YOUR NAME HERE">\n        <div class="iapp-name-skip-button iapp-clickable">Skip</div>\n        <div class="name-next-button button iapp-clickable"><div class="iapp-button-text">Next</div></div>\n    </div>\n</div>';
+'</h2>\n        <input type="text" class="iapp-name-input" placeholder="TYPE YOUR NAME HERE">\n        <div class="iapp-name-skip-button iapp-clickable">Skip</div>\n        <div class="name-next-button button iapp-clickable"><div class="iapp-button-text">Next</div></div>\n    </div>\n</div>\n';
 
 }
 return __p
@@ -215,11 +215,11 @@ this["templates"]["tags.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-panel iapp-tag-sub1 active">\n    <div class="iapp-content-wrap">\n        <h2 class="iapp-section-header iapp-panel-text-main">' +
+__p += '<div class="iapp-panel iapp-tag-sub1 active">\n    <div class="iapp-button-small iapp-topics-back-button button">\n        <div class="iapp-button-text">\n            Back\n        </div>\n    </div>\n    <div class="iapp-content-wrap">\n        <h2 class="iapp-section-header iapp-panel-text-main">' +
 ((__t = (tag_text)) == null ? '' : __t) +
 ' ' +
 ((__t = (greeting)) == null ? '' : __t) +
-'</h2>\n        <div class="iapp-tag-container">\n            \n        </div>\n    \n        <div class="tags-next-button button hide iapp-clickable">\n            <div class="iapp-button-text">Next</div>\n        </div>\n    \n    </div>\n</div>\n\n<div class="iapp-panel iapp-tag-intro upcoming">\n\n    \n</div>';
+'</h2>\n        <div class="iapp-tag-container">\n            \n        </div>\n    \n        <div class="tags-next-button button hide iapp-clickable">\n            <div class="iapp-button-text">Next</div>\n        </div>\n    \n    </div>\n</div>\n\n<div class="iapp-panel iapp-tag-intro upcoming">\n\n    \n</div>\n';
 
 }
 return __p
@@ -242,7 +242,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-video-back-button button iapp-button-small"><div class="iapp-button-text">Back</div></div>\n\n<div class="iapp-video-info">\n     ';
+__p += '<div class="iapp-video-back-button button iapp-button-small"><div class="iapp-button-text">Back to topics</div></div>\n\n<div class="iapp-video-info">\n     ';
  if (userName != "") { ;
 __p += '\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (userName)) == null ? '' : __t) +
@@ -254,7 +254,7 @@ __p += '\n    <h4 class=\'iapp-video-greeting\'>' +
 ((__t = (intro)) == null ? '' : __t) +
 '</h4>\n    ';
 };
-__p += '\n    \n    <div class="iapp-video-info-buttons">\n        <div class="iapp-video-more-button button iapp-button-large"><div class="iapp-button-text">More Videos</div></div>\n        <div class="iapp-video-topics-button button iapp-button-small"><div class="iapp-button-text">Topics</div></div>\n        <div class="iapp-video-discuss-button button iapp-button-small"><div class="iapp-button-text">Share</div></div>\n        <div class="iapp-video-credits-button button iapp-button-small"><div class="iapp-button-text">About</div></div>\n        <div class="iapp-video-play-button button iapp-button-small"><div class="iapp-button-text">Pause</div></div>\n        <div class="iapp-video-replay-button button iapp-button-small"><div class="iapp-button-text">Replay</div></div>\n        \n        \n    </div>\n</div>\n';
+__p += '\n    \n    <div class="iapp-video-info-buttons">\n        <div class="iapp-video-more-button button iapp-button-large"><div class="iapp-button-text">More Videos</div></div>\n        <div class="iapp-video-discuss-button button iapp-button-small"><div class="iapp-button-text">Share</div></div>\n        <div class="iapp-video-credits-button button iapp-button-small"><div class="iapp-button-text">Credits</div></div>\n        <div class="iapp-video-play-button button iapp-button-small"><div class="iapp-button-text">Pause</div></div>\n        <div class="iapp-video-replay-button button iapp-button-small"><div class="iapp-button-text">Replay</div></div>\n        \n        \n    </div>\n</div>\n';
 
 }
 return __p

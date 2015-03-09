@@ -14,6 +14,7 @@ define(
         events: {
             "click .name-next-button": "onNextClick",
             "click .iapp-name-skip-button": "onNextClick",
+            "click .iapp-name-back-button": "onBackClick",
             'keyup .iapp-name-input': "onKeyPress"
         },
         className: 'iapp-panel iapp-name-panel upcoming',
@@ -24,6 +25,10 @@ define(
         },
         onNextClick: function() {
             this.goToNext();
+        },
+        onBackClick: function(){
+            console.log('name view go back');
+            Backbone.trigger("app:goBack");
         },
         onKeyPress: function(e) {
             if(e.keyCode == 13) {

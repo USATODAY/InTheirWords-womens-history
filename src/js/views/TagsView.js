@@ -14,7 +14,8 @@ define(
            this.listenTo(Backbone, 'tags:reset', this.onTagsReset);
         },
         events: {
-            "click .tags-next-button": "onNextClick"
+            "click .tags-next-button": "onNextClick",
+            "click .iapp-topics-back-button": "onBackClick"
         },
         className: 'iapp-panel iapp-tag-panel upcoming',
         template: templates['tags.html'],
@@ -44,9 +45,10 @@ define(
             return this;
         },
         onNextClick: function() {
-            // this.advanceSub();
             Backbone.trigger("tags:set");
-            // Backbone.trigger("app:advance");
+        },
+        onBackClick: function() {
+            Backbone.trigger("app:goBack");
         },
         filter: function() {
             this.$('.iapp-tag-container').isotope({filter: ':not(.unavailable)'});
