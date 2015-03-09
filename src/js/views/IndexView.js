@@ -5,9 +5,10 @@ define(
         'backbone',
         'views/PersonView',
         'views/ClipView',
-        'templates'
+        'templates',
+        'api/analytics'
     ],
-    function(jQuery, _, Backbone, PersonView, ClipView, templates) {
+    function(jQuery, _, Backbone, PersonView, ClipView, templates, Analytics) {
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, 'index:show', this.onIndexShow);

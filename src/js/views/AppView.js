@@ -4,6 +4,7 @@ define(
     'underscore',
     'lib/BackboneRouter',
     'dataManager',
+    'api/analytics',
     'views/BrightcoveView',
     'views/IntroView',
     'views/TagsView',
@@ -17,7 +18,7 @@ define(
     'models/config',
     'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, IndexView, VideoCollection, PeopleCollection, router, config, templates){
+  function(jQuery, _, Backbone, dataManager, Analytics, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, IndexView, VideoCollection, PeopleCollection, router, config, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
@@ -49,6 +50,7 @@ define(
                 
             },
             onNextClick: function() {
+                Analytics.trackEvent('Into next button click.');
                 Backbone.trigger("app:advance");
             },
             onLogoClick: function(e) {
@@ -60,7 +62,6 @@ define(
                 dataManager.userName = name;
             },
             onPanelScroll: function(e) {
-                console.log(e);
                 if (e.currentTarget.scrollTop > 0) {
                     $('.iapp-header').addClass('iapp-fadeOut');
                 } else {

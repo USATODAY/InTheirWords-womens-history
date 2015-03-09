@@ -4,9 +4,10 @@ define(
     'underscore',
     'backbone',
     'views/TagView',
-    'dataManager'
+    'dataManager',
+    'api/analytics'
   ],
-  function(jQuery, _, Backbone, TagView, dataManager) {
+  function(jQuery, _, Backbone, TagView, dataManager, Analytics) {
     return Backbone.View.extend({
         initialize: function() {
            this.listenTo(this.collection, 'change:isActive', this.filter);
@@ -45,6 +46,7 @@ define(
             return this;
         },
         onNextClick: function() {
+            Analytics.trackEvent('Tags next button clicked');
             Backbone.trigger("tags:set");
         },
         onBackClick: function() {

@@ -3,9 +3,10 @@ define(
     'jquery',
     'underscore',
     'backbone',
-    'dataManager'
+    'dataManager',
+    'api/analytics'
   ],
-  function(jQuery, _, Backbone, dataManager) {
+  function(jQuery, _, Backbone, dataManager, Analytics) {
     return Backbone.View.extend({
         initialize: function() {
            // this.listenTo(Backbone, 'name:set', this.onUserSet); 
@@ -24,10 +25,10 @@ define(
             return this;
         },
         onNextClick: function() {
+            Analytics.trackEvent('Name next button clicked');
             this.goToNext();
         },
         onBackClick: function(){
-            console.log('name view go back');
             Backbone.trigger("app:goBack");
         },
         onKeyPress: function(e) {

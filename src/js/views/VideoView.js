@@ -9,9 +9,10 @@ define(
     'models/CreditsModel',
     'models/config',
     'router',
-    'templates'
+    'templates',
+    'api/analytics'
   ],
-  function(jQuery, _, Backbone, BrightcoveView, ShareView, CreditsView, CreditsModel, config, router, templates) {
+  function(jQuery, _, Backbone, BrightcoveView, ShareView, CreditsView, CreditsModel, config, router, templates, Analytics) {
 
     return Backbone.View.extend({
         initialize: function() {
@@ -68,6 +69,7 @@ define(
             
         },
         onMoreClick: function() {
+            Analytics.trackEvent("More videos button clicked");
             Backbone.trigger('index:show');
         },
         onCreditsClick: function() {
@@ -78,6 +80,7 @@ define(
             Backbone.trigger('video:set', this.selectedVideoModel);
         },
         onReplayClick: function() {
+            Analytics.trackEvent("Video replay button clicked");
             Backbone.trigger('index:hide');
             this.brightcoveView.bcPlayer.getIsPlaying(cb);
             var _this = this;
@@ -94,7 +97,7 @@ define(
             
         },
         onPlayClick: function() {
-            
+            Analytics.trackEvent("Video play/pause button clicked");
             this.brightcoveView.bcPlayer.getIsPlaying(cb);
             var _this = this;
             function cb(result) {
@@ -141,6 +144,7 @@ define(
             // this.renderVideo();
         },
         onShareClick: function() {
+            Analytics.trackEvent('Video share button clicked');
             this.brightcoveView.$el.addClass('iapp-blur');
             this.$('.iapp-video-info').addClass('iapp-blur');
             $('.iapp-header').addClass('iapp-blur');
@@ -176,6 +180,7 @@ define(
            
         },
         onVideoEnded: function() {
+            Analytics.trackEvent("Video finished");
             if (!config.isMobile) {
                 Backbone.trigger('index:show');
             }

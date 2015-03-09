@@ -3,9 +3,10 @@ define(
         'jquery',
         'underscore',
         'backbone',
-        'templates'
+        'templates',
+        'api/analytics'
     ],
-    function(jQuery, _, Backbone, templates) {
+    function(jQuery, _, Backbone, templates, Analytics) {
         return Backbone.View.extend({
             render: function() {
                 
@@ -26,6 +27,7 @@ define(
                 Backbone.trigger('share:close');
             },
             onShareButtonClick: function(e) {
+                Analytics.trackEvent('Social share button clicked');
                 e.preventDefault();
                 
 
