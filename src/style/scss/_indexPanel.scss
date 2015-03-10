@@ -35,6 +35,9 @@
 .iapp-person-text {
     font-size: 1em;
     padding: 0.5em 1em;
+    a {
+        color: white;
+    }
 }
 
 .iapp-clip-index {
@@ -116,4 +119,28 @@
 
 .iapp-flipped .iapp-index-close {
     display: none;
+}
+
+.iapp-person-image-wrap {
+    position: relative;
+}
+
+.iapp-person-more-video-button {
+    background-color: none;
+    border: solid 2px white;
+    border-radius: 5px;
+    bottom: 1em;
+    padding: 0.25em;
+    position: absolute;
+    right: 1em;
+    text-transform: uppercase;
+    transition: all 250ms ease;
+    @media(max-width: 600px) {
+        display: none;
+    }
+}
+
+.iapp-person-image-wrap:hover .iapp-person-more-video-button {
+    background-color: white;
+    color: $dark-grey;
 }

@@ -5,9 +5,10 @@ define(
         'backbone',
         'views/PersonView',
         'views/ClipView',
-        'templates'
+        'templates',
+        'api/analytics'
     ],
-    function(jQuery, _, Backbone, PersonView, ClipView, templates) {
+    function(jQuery, _, Backbone, PersonView, ClipView, templates, Analytics) {
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, 'index:show', this.onIndexShow);
@@ -68,6 +69,7 @@ define(
             onPersonSelected: function(personModel) {
                 this.$('.iapp-flip-item').addClass('iapp-flipped');
                 var personFirstName = personModel.get('first_name');
+                console.log(personFirstName);
                 this.filterClips(personFirstName);
 
             },

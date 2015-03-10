@@ -3,9 +3,10 @@ define(
         'jquery',
         'underscore',
         'backbone',
-        'templates'
+        'templates',
+        'api/analytics'
     ],
-    function(jQuery, _, Backbone, templates) {
+    function(jQuery, _, Backbone, templates, Analytics) {
         return Backbone.View.extend({
             render: function() {
                
@@ -16,11 +17,13 @@ define(
                 return this;
             },
             events: {
-                'click': 'onClick'
+                'click .iapp-person-image-wrap': 'onClick'
             },
             template: templates['person.html'],
-            className: 'iapp-person-item iapp-clickable',
+            className: 'iapp-person-item',
             onClick: function() {
+                Analytics.trackEvent("Person Index Person Clicked");
+                console.log(this.model);
                 Backbone.trigger("person:selected", this.model);
             }
         });

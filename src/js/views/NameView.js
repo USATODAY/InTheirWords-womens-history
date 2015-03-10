@@ -3,9 +3,10 @@ define(
     'jquery',
     'underscore',
     'backbone',
-    'dataManager'
+    'dataManager',
+    'api/analytics'
   ],
-  function(jQuery, _, Backbone, dataManager) {
+  function(jQuery, _, Backbone, dataManager, Analytics) {
     return Backbone.View.extend({
         initialize: function() {
            // this.listenTo(Backbone, 'name:set', this.onUserSet); 
@@ -14,6 +15,7 @@ define(
         events: {
             "click .name-next-button": "onNextClick",
             "click .iapp-name-skip-button": "onNextClick",
+            "click .iapp-name-back-button": "onBackClick",
             'keyup .iapp-name-input': "onKeyPress"
         },
         className: 'iapp-panel iapp-name-panel upcoming',
@@ -23,7 +25,11 @@ define(
             return this;
         },
         onNextClick: function() {
+            Analytics.trackEvent('Name next button clicked');
             this.goToNext();
+        },
+        onBackClick: function(){
+            Backbone.trigger("app:goBack");
         },
         onKeyPress: function(e) {
             if(e.keyCode == 13) {

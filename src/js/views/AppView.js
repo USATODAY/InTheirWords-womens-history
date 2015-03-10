@@ -4,6 +4,7 @@ define(
     'underscore',
     'lib/BackboneRouter',
     'dataManager',
+    'api/analytics',
     'views/BrightcoveView',
     'views/IntroView',
     'views/TagsView',
@@ -17,7 +18,7 @@ define(
     'models/config',
     'templates'
   ],
-  function(jQuery, _, Backbone, dataManager, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, IndexView, VideoCollection, PeopleCollection, router, config, templates){
+  function(jQuery, _, Backbone, dataManager, Analytics, BrightcoveView, IntroView, TagsView, TagCollection, NameView, VideoView, IndexView, VideoCollection, PeopleCollection, router, config, templates){
         return Backbone.View.extend({
             initialize: function() {
                 this.listenTo(Backbone, "dataReady", this.onDataReady);
@@ -42,6 +43,7 @@ define(
             },
             onDataReady: function() {
                 this.render();
+                console.log(dataManager.data);
                 Backbone.history.start();
                 _.delay(function() {
                     this.$('.iapp-preloader').fadeOut(250);
@@ -49,6 +51,7 @@ define(
                 
             },
             onNextClick: function() {
+                Analytics.trackEvent('Into next button click.');
                 Backbone.trigger("app:advance");
             },
             onLogoClick: function(e) {
@@ -60,7 +63,6 @@ define(
                 dataManager.userName = name;
             },
             onPanelScroll: function(e) {
-                console.log(e);
                 if (e.currentTarget.scrollTop > 0) {
                     $('.iapp-header').addClass('iapp-fadeOut');
                 } else {
@@ -68,7 +70,8 @@ define(
                 }
             },
             onVideoRoute: function(clip_name) {
-                
+                console.log(clip_name);
+                console.log(dataManager.data);
 
                 
                 this.goToVideo(this.videoCollection.findWhere({'video_clip': clip_name}));
@@ -138,6 +141,7 @@ define(
             },
             goBack: function() {
                 var oldSub = this.subViews[this.currentSubView];
+                console.log("back");
                 this.currentSubView--;
                 var newSub = this.subViews[this.currentSubView];
 
