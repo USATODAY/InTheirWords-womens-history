@@ -25,12 +25,15 @@ define(
             var _this = this;
             jQuery.getJSON(dataURL, function(data) {        
                 _this.data = data[0];
+
+                // call the organize tags function to get our tags
                 _this.organizeTags();
-                
-                
 
-                
-
+                /***
+                 * loop through each item and format/clean up data
+                 * including standardizing video_clip slugs
+                 * and creating an actual image url
+                 */
                 _.each(_this.data.videos, function(videoObj) {
 
                     videoObj.video_clip = videoObj.video_clip.toLowerCase().trim();
@@ -38,10 +41,13 @@ define(
                     videoObj.stillimage = _this.data.base_url + videoObj.stillimage;
                 });
 
+                // loop through all the people and create the image URL
+
                 _.each(_this.data.people, function(personObj) {
                    personObj.person_still = _this.data.base_url + personObj.person_still;
                 });
 
+                // trigger the dataReady Backbone even which kicks off the app 
                 Backbone.trigger("dataReady", this);
 
             });
@@ -49,14 +55,18 @@ define(
         organizeTags: function() {
             var _this = this;
             var tags = [];
+
+            //loop through each data item and and get all the possible tags and put them in a master list
             _.each(_this.data.videos, function(video) {
                     
-                //split tags string into array
+                //split tags string into array (assumes it is a comma-seperated string list)
                 if (video.tags !== "") {
                     video.tags = video.tags.toLowerCase();
                     video.tags = video.tags.split(", ");
                     video.tags = _.without(video.tags, "");
                 }
+
+                //loop through each tag in the array and turn it into object 
 
                 _.each(video.tags, function(tag) {
                     //add each tag to master tags array
