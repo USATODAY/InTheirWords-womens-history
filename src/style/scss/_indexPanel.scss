@@ -35,6 +35,9 @@
 .iapp-person-text {
     font-size: 1em;
     padding: 0.5em 1em;
+    a {
+        color: white;
+    }
 }
 
 .iapp-clip-index {
@@ -137,7 +140,7 @@
     }
 }
 
-.iapp-person-item:hover .iapp-person-more-video-button {
+.iapp-person-image-wrap:hover .iapp-person-more-video-button {
     background-color: white;
     color: $dark-grey;
 }

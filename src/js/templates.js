@@ -84,22 +84,11 @@ return __p
 
 this["templates"]["greeting.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
+var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-content-wrap">\n    ';
- if (userName != "") { ;
-__p += '\n    <h2 class="iapp-section-header iapp-panel-text-main">' +
-((__t = (userName)) == null ? '' : __t) +
-', ' +
-((__t = (intro)) == null ? '' : __t) +
-'</h2>\n    ';
-} else { ;
-__p += '\n    <h2 class="iapp-section-header iapp-panel-text-main">' +
-((__t = (intro)) == null ? '' : __t) +
-'</h2>\n    ';
-};
-__p += '\n</div>';
+__p += '<div class="iapp-content-wrap">\n    <h2 class="iapp-section-header iapp-panel-text-main">' +
+((__t = (questionasked)) == null ? '' : __t) +
+'</h2>\n</div>\n';
 
 }
 return __p
@@ -145,7 +134,7 @@ this["templates"]["person.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="iapp-person-image-wrap">\n    <img src="' +
+__p += '<div class="iapp-person-image-wrap iapp-clickable">\n    <img src="' +
 ((__t = (person_still)) == null ? '' : __t) +
 '" alt="' +
 ((__t = (person_name)) == null ? '' : __t) +

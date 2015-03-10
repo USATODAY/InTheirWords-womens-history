@@ -15,7 +15,7 @@ define(
     } else {
 
 
-        dataURL = "http://" + hostname + "/services/webproxy/?url=http://www.gannett-cdn.com/experiments/usatoday/2015/02/black-history/data/data.json";
+        dataURL = "http://" + hostname + "/services/webproxy/?url=http://www.gannett-cdn.com/experiments/usatoday/2015/03/womens-history/data/data.json";
 
     }
 
@@ -32,9 +32,8 @@ define(
                 
 
                 _.each(_this.data.videos, function(videoObj) {
-                    
 
-                    videoObj.video_clip = videoObj.video_clip.toLowerCase();
+                    videoObj.video_clip = videoObj.video_clip.toLowerCase().trim();
 
                     videoObj.stillimage = _this.data.base_url + videoObj.stillimage;
                 });

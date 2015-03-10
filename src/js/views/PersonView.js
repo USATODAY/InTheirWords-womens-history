@@ -17,10 +17,10 @@ define(
                 return this;
             },
             events: {
-                'click': 'onClick'
+                'click .iapp-person-image-wrap': 'onClick'
             },
             template: templates['person.html'],
-            className: 'iapp-person-item iapp-clickable',
+            className: 'iapp-person-item',
             onClick: function() {
                 Analytics.trackEvent("Person Index Person Clicked");
                 console.log(this.model);
