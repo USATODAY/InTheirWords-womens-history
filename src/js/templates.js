@@ -194,7 +194,8 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
 __p +=
-((__t = (tagName)) == null ? '' : __t);
+((__t = (tagPretty)) == null ? '' : __t) +
+'\n';
 
 }
 return __p
