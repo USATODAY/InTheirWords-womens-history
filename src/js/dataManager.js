@@ -64,6 +64,7 @@ define(
                     video.tags = video.tags.toLowerCase();
                     video.tags = video.tags.split(", ");
                     video.tags = _.without(video.tags, "");
+
                 }
 
                 //loop through each tag in the array and turn it into object 
@@ -72,11 +73,21 @@ define(
                     //add each tag to master tags array
                     
                     var tagObj = {
-                        tagName: tag
+                        tagName: cleanTagName(tag),
+                        tagPretty: tag
                     };
 
                     tags.push(tagObj);
                 });
+
+                
+                video.tags = _.map(video.tags, function(tag) {
+                    return cleanTagName(tag);
+                });
+
+                function cleanTagName(tag) {
+                    return tag.trim().replace(/\s/g, "-");
+                }
 
             });
 
@@ -84,6 +95,7 @@ define(
             var uniqueTags = _.uniq(tags, function(tag) {
                 return tag.tagName;
             });
+
             
             this.data.tags = uniqueTags;
         },
