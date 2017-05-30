@@ -35,7 +35,7 @@ define(
                 'fb_id': config.fb_app_id,
                 'fb_redirect': 'http://' + window.location.hostname + '/pages/interactives/fb-share/',
                 'email_link': this.createEmailLink(),
-                'page_ssl': page_ssl
+                'page_ssl': config.page_ssl
             });
             
             
